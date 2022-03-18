@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(clube, index) in clubesLista" :key="clube.id">
+          <tr v-for="(clube, index) in clubesOrdenados" :key="clube.id">
             <td>{{ index + 1 }}</td>
             <td>
               <v-avatar size="24">
@@ -45,6 +45,14 @@ export default {
         this.clubesLista = json;
       });
   },
+  computed: {
+      clubesOrdenados() {
+          const listaComputada = this.clubesLista.slice(0).sort(
+              (a,b) => a.pontos > b.pontos ? -1 : 1
+          )
+          return listaComputada;
+      }
+  }
 };
 </script>
 
