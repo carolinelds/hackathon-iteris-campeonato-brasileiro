@@ -34,13 +34,22 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
+
+    <v-main>
+        <MeuInicio />
+    </v-main>
     
   </v-app>
 </template>
 
 <script>
+import MeuInicio from './components/MeuInicio'
+
 export default {
   name: 'App',
+  components: {
+    MeuInicio
+  },
   data: () => ({
       drawer: false,
       group: null,
